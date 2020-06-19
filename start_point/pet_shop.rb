@@ -34,3 +34,6 @@ def find_pet_by_name(pet_shop_hash, name)
     pet_shop_hash[:pets].find {|pet| pet[:name] == name}
 end
 
+def remove_pet_by_name(pet_shop_hash, name)
+    pet_shop_hash[:pets].delete_if { |pet| pet[:name] == name }
+end
