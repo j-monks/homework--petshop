@@ -1,3 +1,3 @@
-def pet_shop_name(petshop_hash)
-    return petshop_hash[:name]
+def pet_shop_name(pet_shop_hash)
+    return pet_shop_hash[:name]
 end
