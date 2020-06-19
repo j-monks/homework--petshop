@@ -27,6 +27,10 @@ def stock_count(pet_shop_hash)
 end
 
 def pets_by_breed(pet_shop_hash, breed)
-pet_shop_hash[:pets].select {|pet| pet[:breed] == breed }
+    pet_shop_hash[:pets].select {|pet| pet[:breed] == breed }
+end
+
+def find_pet_by_name(pet_shop_hash, name)
+    pet_shop_hash[:pets].find {|pet| pet[:name] == name}
 end
 
