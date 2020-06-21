@@ -67,9 +67,11 @@ end
 def sell_pet_to_customer(pet_shop_hash, pet_hash, customer)    
     if (pet_hash != nil)
         is_able_to_afford = customer_can_afford_pet(customer, pet_hash)
-        customer[:pets] << pet_hash
+        if (is_able_to_afford == true)
+        customer[:pets] << pet_hash 
         pet_shop_hash[:admin][:pets_sold] += 1
         customer[:cash] -= pet_hash[:price]
         pet_shop_hash[:admin][:total_cash] += pet_hash[:price]
+        end
     end
    end
