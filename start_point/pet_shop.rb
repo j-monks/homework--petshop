@@ -53,3 +53,23 @@ end
 def add_pet_to_customer(customer, new_pet_hash)
     customer[:pets] << new_pet_hash
 end
+
+def customer_can_afford_pet(customer, new_pet_hash)
+    is_able_to_afford = false
+    if (customer[:cash] >= new_pet_hash[:price])
+        is_able_to_afford = true
+    elsif (customer[:cash] < new_pet_hash[:price])
+        is_able_to_afford = false
+    end
+    return is_able_to_afford
+end
+
+def sell_pet_to_customer(pet_shop_hash, pet_hash, customer)
+    is_able_to_afford = customer_can_afford_pet(customer, pet_hash)
+     if (is_able_to_afford == true)
+       customer[:pets] << pet_hash
+       pet_shop_hash[:admin][:pets_sold] += 1
+       customer[:cash] -= pet_hash[:price]
+       pet_shop_hash[:admin][:total_cash] += pet_hash[:price]
+     end
+   end
