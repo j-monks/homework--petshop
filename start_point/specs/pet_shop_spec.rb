@@ -90,13 +90,13 @@ class TestPetShop < Minitest::Test
     assert_equal(1000, sum)
   end
 
-  def skip_test_add_or_remove_cash__add
+  def test_add_or_remove_cash__add
     add_or_remove_cash(@pet_shop,10)
     cash = total_cash(@pet_shop)
     assert_equal(1010, cash)
   end
 
-  def skip_test_add_or_remove_cash__remove
+  def test_add_or_remove_cash__remove
     add_or_remove_cash(@pet_shop,-10)
     cash = total_cash(@pet_shop)
     assert_equal(990, cash)
@@ -166,7 +166,7 @@ class TestPetShop < Minitest::Test
     assert_equal(0, count)
   end
 
-  def test_add_pet_to_customer
+  def skip_test_add_pet_to_customer
     customer = @customers[0]
     add_pet_to_customer(customer, @new_pet)
     assert_equal(1, customer_pet_count(customer))
